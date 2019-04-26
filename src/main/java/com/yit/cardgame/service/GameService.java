@@ -3,9 +3,9 @@ package com.yit.cardgame.service;
 import com.yit.cardgame.foundation.Game;
 
 public class GameService {
-    private static GameService instance = null;
+    private static GameService instance;
 
-    private Game game;
+    private static Game game;
 
     private GameService() {
         game = new Game();
@@ -25,7 +25,7 @@ public class GameService {
     }
 
 
-    public Game getGame() {
+    public static Game getGame() {
         return game;
     }
 }

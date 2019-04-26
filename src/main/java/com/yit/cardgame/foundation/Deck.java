@@ -1,13 +1,13 @@
 package com.yit.cardgame.foundation;
 
 public class Deck {
-    private int id;
+    private String id;
 
-    public Deck(int id) {
+    public Deck(String id) {
         this.id = id;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 }

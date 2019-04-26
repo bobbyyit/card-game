@@ -1,7 +1,7 @@
 package com.yit.cardgame.response;
 
 public class CreateResponse {
-    private Integer id;
+    private String id;
     private int code;
     private String message;
 
@@ -10,7 +10,7 @@ public class CreateResponse {
         this.message = message;
     }
 
-    public CreateResponse(int id, int code, String message) {
+    public CreateResponse(String id, int code, String message) {
         this.id = id;
         this.code = code;
         this.message = message;

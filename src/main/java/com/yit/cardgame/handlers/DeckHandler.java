@@ -18,7 +18,7 @@ public class DeckHandler implements Handler {
     @Override
     public void handle(Context ctx) {
         ctx.header("content-type", "application/json");
-        DeckService deck = DeckService.createDeck();
+        DeckService deck = DeckService.getOrCreateDeck();
         if (deck != null) {
             ctx.getResponse().status(OK);
             ctx.render(gson.toJson(new CreateResponse(deck.getDeck().getId(), OK.getCode(), "Deck has been created.")));
