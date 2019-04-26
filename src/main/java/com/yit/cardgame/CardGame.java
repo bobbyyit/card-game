@@ -1,5 +1,8 @@
 package com.yit.cardgame;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.yit.cardgame.handlers.CreateGameHandler;
 import ratpack.server.ServerConfig;
 
 import static java.net.InetAddress.getByName;
@@ -13,8 +16,13 @@ public class CardGame {
                         .address(getByName("0.0.0.0"))
                         .baseDir(find()))
                 .handlers(chain -> {
+                    Gson gson = new GsonBuilder().setPrettyPrinting().create();
                     chain
-                            .get("", ctx -> ctx.render("You're up and running"));
+                            .get("", ctx -> {
+                                ctx.render("You're up and running");
+                            })
+                            .get("game/create", new CreateGameHandler(gson))
+                    ;
                 })
         );
     }
