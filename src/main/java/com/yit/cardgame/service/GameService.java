@@ -21,11 +21,16 @@ public class GameService {
 
     public static GameService deleteGame() {
         instance = null;
+        game = null;
         return instance;
     }
 
 
     public static Game getGame() {
         return game;
+    }
+
+    public static boolean isGameCreated() {
+        return game != null;
     }
 }

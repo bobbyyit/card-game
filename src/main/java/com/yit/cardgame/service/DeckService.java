@@ -2,7 +2,7 @@ package com.yit.cardgame.service;
 
 import com.yit.cardgame.foundation.Deck;
 
-import java.util.UUID;
+import static java.util.UUID.randomUUID;
 
 public class DeckService {
     private static DeckService instance = null;
@@ -10,7 +10,7 @@ public class DeckService {
     private Deck deck;
 
     private DeckService() {
-        deck = new Deck(UUID.randomUUID().toString());
+        deck = new Deck(randomUUID().toString());
     }
 
     public static DeckService getOrCreateDeck(){
