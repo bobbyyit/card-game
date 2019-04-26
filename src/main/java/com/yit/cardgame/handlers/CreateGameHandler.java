@@ -27,7 +27,7 @@ public class CreateGameHandler implements Handler {
             ctx.render(gson.toJson(new CreateResponse(OK.getCode(), "Game has been created.")));
         } else {
             ctx.getResponse().status(400);
-            ctx.render("fuck off");
+            ctx.render("i mean... something something bad");
         }
     }
 }

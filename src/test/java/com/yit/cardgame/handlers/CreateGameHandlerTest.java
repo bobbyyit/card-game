@@ -28,12 +28,11 @@ public class CreateGameHandlerTest {
     }
 
     @Test
-    public void returnJsonContentType() throws Exception {
+    public void returnJsonContentType() {
         handler.handle(context);
 
         verify(context).header("content-type", "application/json");
     }
-
 
     @Test
     public void returnsOk() {
