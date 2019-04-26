@@ -3,7 +3,7 @@ package com.yit.cardgame.service;
 import com.yit.cardgame.foundation.Game;
 
 public class GameService {
-    private static GameService single_instance = null;
+    private static GameService instance = null;
 
     private Game game;
 
@@ -11,12 +11,17 @@ public class GameService {
         game = new Game();
     }
 
-    public static GameService createInstance()
-    {
-        if (single_instance == null)
-            single_instance = new GameService();
+    public static GameService createGame(){
+        if (instance == null) {
+            instance = new GameService();
+        }
 
-        return single_instance;
+        return instance;
+    }
+
+    public static GameService deleteGame() {
+        instance = null;
+        return instance;
     }
 
 

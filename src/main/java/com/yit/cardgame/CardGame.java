@@ -3,6 +3,7 @@ package com.yit.cardgame;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.yit.cardgame.handlers.CreateGameHandler;
+import com.yit.cardgame.handlers.DeleteGameHandler;
 import ratpack.server.ServerConfig;
 
 import static java.net.InetAddress.getByName;
@@ -22,6 +23,7 @@ public class CardGame {
                                 ctx.render("You're up and running");
                             })
                             .get("game/create", new CreateGameHandler(gson))
+                            .get("game/delete", new DeleteGameHandler(gson))
                     ;
                 })
         );

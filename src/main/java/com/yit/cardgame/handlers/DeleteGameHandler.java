@@ -8,22 +8,22 @@ import ratpack.handling.Handler;
 
 import static ratpack.http.Status.OK;
 
-public class CreateGameHandler implements Handler {
+public class DeleteGameHandler implements Handler {
     private Gson gson;
 
-    public CreateGameHandler(Gson gson) {
+    public DeleteGameHandler(Gson gson) {
         this.gson = gson;
     }
 
     @Override
     public void handle(Context ctx) {
         ctx.header("content-type", "application/json");
-        if (GameService.createGame() != null) {
+        if (GameService.deleteGame() == null) {
             ctx.getResponse().status(OK);
-            ctx.render(gson.toJson(new CreateResponse(OK.getCode(), "Game has been created.")));
+            ctx.render(gson.toJson(new CreateResponse(OK.getCode(), "Game has been deleted.")));
         } else {
             ctx.getResponse().status(400);
-            ctx.render(gson.toJson(new CreateResponse(400, "Could not create game.")));
+            ctx.render(gson.toJson(new CreateResponse(400, "Could not delete game.")));
         }
     }
 }
