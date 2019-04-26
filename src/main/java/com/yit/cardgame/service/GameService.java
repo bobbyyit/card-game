@@ -2,20 +2,19 @@ package com.yit.cardgame.service;
 
 import com.yit.cardgame.foundation.Game;
 
-public class GameService2 {
-    private static GameService2 single_instance = null;
+public class GameService {
+    private static GameService single_instance = null;
 
     private Game game;
 
-    private GameService2() {
+    private GameService() {
         game = new Game();
     }
 
-    // static method to create instance of GameService2 class
-    public static GameService2 createInstance()
+    public static GameService createInstance()
     {
         if (single_instance == null)
-            single_instance = new GameService2();
+            single_instance = new GameService();
 
         return single_instance;
     }

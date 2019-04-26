@@ -50,11 +50,11 @@ public class CreateGameHandlerTest {
     }
 //    @Test
 //    public void createGame() {
-//        PowerMockito.mockStatic(GameService2.class);
+//        PowerMockito.mockStatic(GameService.class);
 //
 //        handler.handle(context);
 //
-//        PowerMockito.verifyStatic(GameService2.class);
+//        PowerMockito.verifyStatic(GameService.class);
 //
 //    }
 }

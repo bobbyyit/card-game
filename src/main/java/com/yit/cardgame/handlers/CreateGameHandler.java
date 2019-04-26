@@ -2,7 +2,7 @@ package com.yit.cardgame.handlers;
 
 import com.google.gson.Gson;
 import com.yit.cardgame.response.CreateResponse;
-import com.yit.cardgame.service.GameService2;
+import com.yit.cardgame.service.GameService;
 import ratpack.handling.Context;
 import ratpack.handling.Handler;
 
@@ -22,7 +22,7 @@ public class CreateGameHandler implements Handler {
     public void handle(Context ctx) {
         ctx.header("content-type", "application/json");
 
-        if (GameService2.createInstance() != null) {
+        if (GameService.createInstance() != null) {
             ctx.getResponse().status(OK);
             ctx.render(gson.toJson(new CreateResponse(OK.getCode(), "Game has been created.")));
         } else {
