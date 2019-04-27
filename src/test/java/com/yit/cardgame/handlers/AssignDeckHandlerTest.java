@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.yit.cardgame.response.SimpleResponse;
+import com.yit.cardgame.service.Dealer;
 import com.yit.cardgame.service.DeckService;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,7 +27,7 @@ public class AssignDeckHandlerTest {
     @Before
     public void setUp() {
         gson = new GsonBuilder().setPrettyPrinting().create();
-        handler = new AssignDeckHandler(gson);
+        handler = new AssignDeckHandler(gson, new Dealer());
         when(context.getRequest()).thenReturn(request);
         when(context.getResponse()).thenReturn(response);
         DeckService.getOrCreateDeck();

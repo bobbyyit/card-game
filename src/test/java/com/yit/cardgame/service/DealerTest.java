@@ -4,10 +4,10 @@ import com.yit.cardgame.foundation.Card;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
 import java.util.Stack;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.core.IsNot.not;
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.assertThat;
@@ -57,5 +57,20 @@ public class DealerTest {
         dealer.shuffleCards(stackOfCards);
 
         assertThat(stackOfCards.pop().getId(), not(equalTo(cards[51].getId())));
+    }
+
+    @Test
+    public void canDealCards() {
+        Stack<Card> stack = new Stack<>();
+        stack.push(new Card(1, 1, "some-suit", "nice-name"));
+        stack.push(new Card(2, 2, "some-suit", "nice-name"));
+        stack.push(new Card(3, 3, "some-suit", "nice-name"));
+
+        List<Card> cards = dealer.dealCards(stack, 3);
+
+        assertThat(cards, hasItems(
+                new Card(3, 3, "some-suit", "nice-name"),
+                new Card(2, 2, "some-suit", "nice-name"),
+                new Card(1, 1, "some-suit", "nice-name")));
     }
 }

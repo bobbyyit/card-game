@@ -2,10 +2,10 @@ package com.yit.cardgame.foundation;
 
 public enum Cards {
 
-    ACE_OF_HEARTS(1, 14, "Hearts", ""),
-    ACE_OF_SPADES(2, 14, "Spades", ""),
-    ACE_OF_DIAMONDS(3, 14, "Diamonds", ""),
-    ACE_OF_CLUBS(4, 14, "Clubs" ,""),
+    ACE_OF_HEARTS(1, 1, "Hearts", ""),
+    ACE_OF_SPADES(2, 1, "Spades", ""),
+    ACE_OF_DIAMONDS(3, 1, "Diamonds", ""),
+    ACE_OF_CLUBS(4, 1, "Clubs" ,""),
     TWO_OF_HEARTS(5, 2, "Hearts", ""),
     TWO_OF_SPADES(6, 2, "Spades", ""),
     TWO_OF_DIAMONDS(7, 2, "Diamonds", ""),

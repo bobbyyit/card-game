@@ -3,6 +3,8 @@ package com.yit.cardgame.service;
 import com.yit.cardgame.foundation.Card;
 import com.yit.cardgame.foundation.Cards;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Stack;
 
@@ -18,7 +20,6 @@ public class Dealer {
 
     public void shuffleCards(Card[] cards) {
         Random random = new Random();
-
         for (int i = 0; i < cards.length; i++) {
             int randomPosition = random.nextInt(cards.length);
             Card temp = cards[i];
@@ -42,5 +43,17 @@ public class Dealer {
         }
         shuffleCards(cards);
         return prepareToDeal(cards);
+    }
+
+    public List<Card> dealCards(Stack<Card> deckOfCards, int quantity) {
+        List<Card> cards = new ArrayList<>();
+
+        int i = 1;
+        while(i <= quantity) {
+            cards.add(deckOfCards.pop());
+            i++;
+        }
+
+        return cards;
     }
 }

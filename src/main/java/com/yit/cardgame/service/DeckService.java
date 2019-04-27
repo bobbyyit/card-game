@@ -1,6 +1,9 @@
 package com.yit.cardgame.service;
 
+import com.yit.cardgame.foundation.Card;
 import com.yit.cardgame.foundation.Deck;
+
+import java.util.Stack;
 
 import static java.util.UUID.randomUUID;
 
@@ -23,5 +26,9 @@ public class DeckService {
 
     public Deck getDeck() {
         return deck;
+    }
+
+    public void addDeckOfCards(Stack<Card> cardStack) {
+        deck.setDeckOfCards(cardStack);
     }
 }

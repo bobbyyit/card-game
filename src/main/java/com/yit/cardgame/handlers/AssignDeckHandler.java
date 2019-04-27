@@ -3,6 +3,7 @@ package com.yit.cardgame.handlers;
 import com.google.gson.Gson;
 import com.yit.cardgame.foundation.Deck;
 import com.yit.cardgame.response.SimpleResponse;
+import com.yit.cardgame.service.Dealer;
 import com.yit.cardgame.service.GameService;
 import ratpack.handling.Context;
 import ratpack.handling.Handler;
@@ -15,9 +16,11 @@ import static ratpack.http.Status.OK;
 
 public class AssignDeckHandler implements Handler {
     private Gson gson;
+    private Dealer dealer;
 
-    public AssignDeckHandler(Gson gson) {
+    public AssignDeckHandler(Gson gson, Dealer dealer) {
         this.gson = gson;
+        this.dealer = dealer;
     }
 
     @Override
@@ -25,7 +28,10 @@ public class AssignDeckHandler implements Handler {
         ctx.header("content-type", "application/json");
         MultiValueMap<String, String> parameters = ctx.getRequest().getQueryParams();
         if (isValidFormat(parameters)) {
+
             Deck deck = getOrCreateDeck().getDeck();
+            deck.setDeckOfCards(dealer.shuffleCards(dealer.prepareToDeal(dealer.createDeckOfCards())));
+
             if (deck.getId().equals(parameters.get("deck-id"))) {
                 GameService.getGame().setDeck(deck);
                 ctx.getResponse().status(OK);
