@@ -1,7 +1,7 @@
 package com.yit.cardgame.handlers;
 
 import com.google.gson.Gson;
-import com.yit.cardgame.response.CreateResponse;
+import com.yit.cardgame.response.SimpleResponse;
 import com.yit.cardgame.service.DeckService;
 import ratpack.handling.Context;
 import ratpack.handling.Handler;
@@ -21,10 +21,10 @@ public class DeckHandler implements Handler {
         DeckService deck = DeckService.getOrCreateDeck();
         if (deck != null) {
             ctx.getResponse().status(OK);
-            ctx.render(gson.toJson(new CreateResponse(deck.getDeck().getId(), OK.getCode(), "Deck has been created.")));
+            ctx.render(gson.toJson(new SimpleResponse(deck.getDeck().getId(), OK.getCode(), "Deck has been created.")));
         } else {
             ctx.getResponse().status(400);
-            ctx.render(gson.toJson(new CreateResponse(400, "Could not create deck.")));
+            ctx.render(gson.toJson(new SimpleResponse(400, "Could not create deck.")));
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.yit.cardgame.handlers;
 
 import com.google.gson.Gson;
-import com.yit.cardgame.response.CreateResponse;
+import com.yit.cardgame.response.SimpleResponse;
 import com.yit.cardgame.service.GameService;
 import ratpack.handling.Context;
 import ratpack.handling.Handler;
@@ -20,10 +20,10 @@ public class DeleteGameHandler implements Handler {
         ctx.header("content-type", "application/json");
         if (GameService.deleteGame() == null) {
             ctx.getResponse().status(OK);
-            ctx.render(gson.toJson(new CreateResponse(OK.getCode(), "Game has been deleted.")));
+            ctx.render(gson.toJson(new SimpleResponse(OK.getCode(), "Game has been deleted.")));
         } else {
             ctx.getResponse().status(400);
-            ctx.render(gson.toJson(new CreateResponse(400, "Could not delete game.")));
+            ctx.render(gson.toJson(new SimpleResponse(400, "Could not delete game.")));
         }
     }
 }

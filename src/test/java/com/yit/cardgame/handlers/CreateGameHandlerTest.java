@@ -2,7 +2,7 @@ package com.yit.cardgame.handlers;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.yit.cardgame.response.CreateResponse;
+import com.yit.cardgame.response.SimpleResponse;
 import org.junit.Before;
 import org.junit.Test;
 import ratpack.handling.Context;
@@ -45,7 +45,7 @@ public class CreateGameHandlerTest {
     public void rendersMessage() {
         handler.handle(context);
 
-        verify(context).render(gson.toJson(new CreateResponse(OK.getCode(), "Game has been created.")));
+        verify(context).render(gson.toJson(new SimpleResponse(OK.getCode(), "Game has been created.")));
     }
 //    @Test
 //    public void createGame() {

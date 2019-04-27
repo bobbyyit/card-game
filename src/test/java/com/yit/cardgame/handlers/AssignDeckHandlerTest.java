@@ -3,7 +3,7 @@ package com.yit.cardgame.handlers;
 import com.google.common.collect.ImmutableList;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.yit.cardgame.response.CreateResponse;
+import com.yit.cardgame.response.SimpleResponse;
 import com.yit.cardgame.service.DeckService;
 import org.junit.Before;
 import org.junit.Test;
@@ -65,7 +65,7 @@ public class AssignDeckHandlerTest {
 
         handler.handle(context);
 
-        verify(context).render(gson.toJson(new CreateResponse(OK.getCode(), "Deck has been assigned to the game.")));
+        verify(context).render(gson.toJson(new SimpleResponse(OK.getCode(), "Deck has been assigned to the game.")));
     }
 
     @Test
@@ -74,7 +74,7 @@ public class AssignDeckHandlerTest {
 
         handler.handle(context);
 
-        verify(context).render(gson.toJson(new CreateResponse(400, "Bad Parameter, missing deck-id.")));
+        verify(context).render(gson.toJson(new SimpleResponse(400, "Bad Parameter, missing deck-id.")));
     }
 
     private ImmutableDelegatingMultiValueMap deckIdParameter(String key, String deckId) {

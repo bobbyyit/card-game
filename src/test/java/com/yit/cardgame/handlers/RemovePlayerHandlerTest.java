@@ -3,7 +3,7 @@ package com.yit.cardgame.handlers;
 import com.google.common.collect.ImmutableList;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.yit.cardgame.response.CreateResponse;
+import com.yit.cardgame.response.SimpleResponse;
 import org.junit.Before;
 import org.junit.Test;
 import ratpack.handling.Context;
@@ -50,7 +50,7 @@ public class RemovePlayerHandlerTest {
     public void rendersMessage() {
         handler.handle(context);
 
-        verify(context).render(gson.toJson(new CreateResponse(OK.getCode(), "Game has been deleted.")));
+        verify(context).render(gson.toJson(new SimpleResponse(OK.getCode(), "Game has been deleted.")));
     }
 
     private ImmutableDelegatingMultiValueMap playerIdParameter(String key, String playerId) {

@@ -2,7 +2,7 @@ package com.yit.cardgame.handlers;
 
 import com.google.gson.Gson;
 import com.yit.cardgame.foundation.Deck;
-import com.yit.cardgame.response.CreateResponse;
+import com.yit.cardgame.response.SimpleResponse;
 import com.yit.cardgame.service.GameService;
 import ratpack.handling.Context;
 import ratpack.handling.Handler;
@@ -29,14 +29,14 @@ public class AssignDeckHandler implements Handler {
             if (deck.getId().equals(parameters.get("deck-id"))) {
                 GameService.getGame().setDeck(deck);
                 ctx.getResponse().status(OK);
-                ctx.render(gson.toJson(new CreateResponse(OK.getCode(), "Deck has been assigned to the game.")));
+                ctx.render(gson.toJson(new SimpleResponse(OK.getCode(), "Deck has been assigned to the game.")));
             } else {
                 ctx.getResponse().status(400);
-                ctx.render(gson.toJson(new CreateResponse(400, "Bad Parameter, cannot find deck.")));
+                ctx.render(gson.toJson(new SimpleResponse(400, "Bad Parameter, cannot find deck.")));
             }
         } else {
             ctx.getResponse().status(400);
-            ctx.render(gson.toJson(new CreateResponse(400, "Bad Parameter, missing deck-id.")));
+            ctx.render(gson.toJson(new SimpleResponse(400, "Bad Parameter, missing deck-id.")));
         }
     }
 

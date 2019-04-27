@@ -2,7 +2,7 @@ package com.yit.cardgame.handlers;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.yit.cardgame.response.CreateResponse;
+import com.yit.cardgame.response.SimpleResponse;
 import com.yit.cardgame.service.GameService;
 import com.yit.cardgame.service.PlayerCreationService;
 import org.junit.Before;
@@ -51,7 +51,7 @@ public class AddPlayerHandlerTest {
     public void rendersMessage() {
         handler.handle(context);
 
-        verify(context).render(gson.toJson(new CreateResponse(OK.getCode(), anyString())));
+        verify(context).render(gson.toJson(new SimpleResponse(OK.getCode(), anyString())));
     }
 
 //    @Test
@@ -60,6 +60,6 @@ public class AddPlayerHandlerTest {
 
         handler.handle(context);
 
-        verify(context).render(gson.toJson(new CreateResponse(OK.getCode(), anyString())));
+        verify(context).render(gson.toJson(new SimpleResponse(OK.getCode(), anyString())));
     }
 }

@@ -1,7 +1,7 @@
 package com.yit.cardgame.handlers;
 
 import com.google.gson.Gson;
-import com.yit.cardgame.response.CreateResponse;
+import com.yit.cardgame.response.SimpleResponse;
 import com.yit.cardgame.service.GameService;
 import ratpack.handling.Context;
 import ratpack.handling.Handler;
@@ -28,10 +28,10 @@ public class RemovePlayerHandler implements Handler {
             GameService.getGame().removePlayer(playerId);
 
             ctx.getResponse().status(OK);
-            ctx.render(gson.toJson(new CreateResponse(OK.getCode(), format("Player %s has been removed from the game.", playerId))));
+            ctx.render(gson.toJson(new SimpleResponse(OK.getCode(), format("Player %s has been removed from the game.", playerId))));
         } else {
             ctx.getResponse().status(400);
-            ctx.render(gson.toJson(new CreateResponse(400, "Bad Parameters.")));
+            ctx.render(gson.toJson(new SimpleResponse(400, "Bad Parameters.")));
         }
     }
     private boolean isValidFormat(Map<String, String> parameters) {

@@ -26,4 +26,8 @@ public class Game {
                 .findFirst()
                 .ifPresent(player -> players.remove(player));
     }
+
+    public List<Player> listPlayers() {
+        return players;
+    }
 }

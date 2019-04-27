@@ -2,7 +2,7 @@ package com.yit.cardgame.handlers;
 
 import com.google.gson.Gson;
 import com.yit.cardgame.foundation.Player;
-import com.yit.cardgame.response.CreateResponse;
+import com.yit.cardgame.response.SimpleResponse;
 import com.yit.cardgame.service.GameService;
 import com.yit.cardgame.service.PlayerCreationService;
 import ratpack.handling.Context;
@@ -29,10 +29,10 @@ public class AddPlayerHandler implements Handler {
             GameService.getGame().addPlayer(newPlayer);
 
             ctx.getResponse().status(OK);
-            ctx.render(gson.toJson(new CreateResponse(OK.getCode(), format("Player %s has been added to the game.", newPlayer.getId()))));
+            ctx.render(gson.toJson(new SimpleResponse(OK.getCode(), format("Player %s has been added to the game.", newPlayer.getId()))));
         } else {
             ctx.getResponse().status(400);
-            ctx.render(gson.toJson(new CreateResponse(400, "Game has not been created, please create a game and try again.")));
+            ctx.render(gson.toJson(new SimpleResponse(400, "Game has not been created, please create a game and try again.")));
         }
     }
 }
