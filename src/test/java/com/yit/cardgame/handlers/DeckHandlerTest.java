@@ -3,6 +3,7 @@ package com.yit.cardgame.handlers;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.yit.cardgame.response.SimpleResponse;
+import com.yit.cardgame.service.Dealer;
 import org.junit.Before;
 import org.junit.Test;
 import ratpack.handling.Context;
@@ -22,7 +23,7 @@ public class DeckHandlerTest {
     @Before
     public void setUp() {
         gson = new GsonBuilder().setPrettyPrinting().create();
-        handler = new DeckHandler(gson);
+        handler = new DeckHandler(gson, new Dealer());
         when(context.getRequest()).thenReturn(request);
         when(context.getResponse()).thenReturn(response);
     }

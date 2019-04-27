@@ -30,7 +30,7 @@ public class CardGame {
                             .get("game/player/remove", new RemovePlayerHandler(gson))
                             .get("game/players", new ListPlayersHandler(gson))
                             // TODO: list players cards
-                            .get("deck/create", new DeckHandler(gson))
+                            .get("deck/create", new DeckHandler(gson, dealer))
                             .get("deck/assign", new AssignDeckHandler(gson, new Dealer()))
                             .get("deck/shuffle", new ShuffleDeckHandler(gson, new Dealer()))
                             // TODO: list un-dealt by value

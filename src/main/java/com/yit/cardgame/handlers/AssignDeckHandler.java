@@ -31,7 +31,7 @@ public class AssignDeckHandler implements Handler {
         if (isValidFormat(parameters)) {
 
             Deck deck = getOrCreateDeck().getDeck();
-            DeckService.addDeckOfCards(dealer.shuffleCards(dealer.prepareToDeal(dealer.createDeckOfCards())));
+            DeckService.addDeckOfCards(deck.getDeckOfCards());
 
             if (deck.getId().equals(parameters.get("deck-id"))) {
                 GameService.getGame().setDeck(deck);
