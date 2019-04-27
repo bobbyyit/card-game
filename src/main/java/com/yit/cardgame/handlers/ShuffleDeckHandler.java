@@ -9,7 +9,6 @@ import com.yit.cardgame.service.GameService;
 import ratpack.handling.Context;
 import ratpack.handling.Handler;
 
-import java.util.Map;
 import java.util.Stack;
 
 import static ratpack.http.Status.OK;
@@ -35,9 +34,5 @@ public class ShuffleDeckHandler implements Handler {
 
         ctx.getResponse().status(OK);
         ctx.render(gson.toJson(new SimpleResponse(OK.getCode(), "Deck has been shuffled.")));
-    }
-
-    private boolean isValidFormat(Map<String, String> parameters) {
-        return parameters.containsKey("deck-id");
     }
 }
