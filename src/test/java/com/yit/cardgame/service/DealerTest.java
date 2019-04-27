@@ -18,7 +18,7 @@ public class DealerTest {
 
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         dealer = new Dealer();
     }
 
