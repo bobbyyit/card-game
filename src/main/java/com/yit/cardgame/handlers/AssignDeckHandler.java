@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.yit.cardgame.foundation.Deck;
 import com.yit.cardgame.response.SimpleResponse;
 import com.yit.cardgame.service.Dealer;
+import com.yit.cardgame.service.DeckService;
 import com.yit.cardgame.service.GameService;
 import ratpack.handling.Context;
 import ratpack.handling.Handler;
@@ -30,7 +31,7 @@ public class AssignDeckHandler implements Handler {
         if (isValidFormat(parameters)) {
 
             Deck deck = getOrCreateDeck().getDeck();
-            deck.setDeckOfCards(dealer.shuffleCards(dealer.prepareToDeal(dealer.createDeckOfCards())));
+            DeckService.addDeckOfCards(dealer.shuffleCards(dealer.prepareToDeal(dealer.createDeckOfCards())));
 
             if (deck.getId().equals(parameters.get("deck-id"))) {
                 GameService.getGame().setDeck(deck);

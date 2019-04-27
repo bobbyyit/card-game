@@ -10,7 +10,7 @@ import static java.util.UUID.randomUUID;
 public class DeckService {
     private static DeckService instance = null;
 
-    private Deck deck;
+    private static Deck deck;
 
     private DeckService() {
         deck = new Deck(randomUUID().toString());
@@ -28,7 +28,7 @@ public class DeckService {
         return deck;
     }
 
-    public void addDeckOfCards(Stack<Card> cardStack) {
+    public static void addDeckOfCards(Stack<Card> cardStack) {
         deck.setDeckOfCards(cardStack);
     }
 }

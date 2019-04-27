@@ -29,9 +29,12 @@ public class CardGame {
                             .get("game/player/add", new AddPlayerHandler(gson, new PlayerCreationService()))
                             .get("game/player/remove", new RemovePlayerHandler(gson))
                             .get("game/players", new ListPlayersHandler(gson))
+                            // TODO: list players cards
                             .get("deck/create", new DeckHandler(gson))
                             .get("deck/assign", new AssignDeckHandler(gson, new Dealer()))
                             .get("deck/shuffle", new ShuffleDeckHandler(gson, new Dealer()))
+                            // TODO: list un-dealt by value
+                            // TODO: list un-dealt per suit
                             .get("deal/", new DealerHandler(gson, dealer))
                     ;
                 })

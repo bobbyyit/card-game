@@ -32,7 +32,6 @@ public class Game {
                 .filter(player -> playerId.equals(player.getId()))
                 .findFirst()
                 .orElse(null);
-
     }
 
     public List<Player> listPlayers() {
