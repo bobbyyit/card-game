@@ -15,12 +15,12 @@ public class Player {
         return id;
     }
 
-    public void addCards(List<Card> cards) {
+    public void addCards(List<Card> cardsToAdd) {
         if (cards == null) {
             cards = new ArrayList<>();
         }
 
-        cards.addAll(cards);
+        cards.addAll(cardsToAdd);
     }
 
     public List<Card> getCards() {

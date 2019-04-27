@@ -38,8 +38,9 @@ public class Dealer {
 
     public Stack<Card> shuffleCards(Stack<Card> cardStack) {
         Card[] cards = new Card[cardStack.size()];
-        for (int i = 0; i < cardStack.size(); i++) {
-            cards[i] = cardStack.pop();
+        for (int i = cardStack.size() - 1; i >= 0; i--) {
+            Card card = cardStack.pop();
+            cards[i] = card;
         }
         shuffleCards(cards);
         return prepareToDeal(cards);
