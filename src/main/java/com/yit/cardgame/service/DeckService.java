@@ -24,6 +24,11 @@ public class DeckService {
         return instance;
     }
 
+    public static DeckService createNewDeck(){
+        instance = new DeckService();
+        return instance;
+    }
+
     public Deck getDeck() {
         return deck;
     }
