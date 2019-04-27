@@ -35,7 +35,7 @@ public class CardGame {
                             .get("deck/shuffle", new ShuffleDeckHandler(gson, new Dealer()))
                             // TODO: list un-dealt by value
                             // TODO: list un-dealt per suit
-                            .get("deal/", new DealerHandler(gson, dealer))
+                            .get("deal", new DealerHandler(gson, dealer))
                     ;
                 })
         );
