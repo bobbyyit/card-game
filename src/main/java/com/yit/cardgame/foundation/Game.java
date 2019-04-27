@@ -35,7 +35,6 @@ public class Game {
     }
 
     public List<Player> listPlayers() {
-
         return players;
     }
 
