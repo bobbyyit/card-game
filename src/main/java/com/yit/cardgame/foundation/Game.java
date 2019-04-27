@@ -19,4 +19,11 @@ public class Game {
 
         players.add(player);
     }
+
+    public void removePlayer(String playerId) {
+        players.stream()
+                .filter(player -> player.getId().equals(playerId))
+                .findFirst()
+                .ifPresent(player -> players.remove(player));
+    }
 }

@@ -8,6 +8,7 @@ import com.yit.cardgame.service.PlayerCreationService;
 import ratpack.handling.Context;
 import ratpack.handling.Handler;
 
+import static com.yit.cardgame.service.GameService.isGameCreated;
 import static java.lang.String.format;
 import static ratpack.http.Status.OK;
 
@@ -23,7 +24,7 @@ public class AddPlayerHandler implements Handler {
     @Override
     public void handle(Context ctx) {
         ctx.header("content-type", "application/json");
-        if (GameService.isGameCreated()) {
+        if (isGameCreated()) {
             Player newPlayer = playerCreationService.createNewPlayer();
             GameService.getGame().addPlayer(newPlayer);
 

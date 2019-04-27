@@ -25,6 +25,7 @@ public class CardGame {
                             .get("game/create", new CreateGameHandler(gson))
                             .get("game/delete", new DeleteGameHandler(gson))
                             .get("game/player/add", new AddPlayerHandler(gson, new PlayerCreationService()))
+                            .get("game/player/remove", new RemovePlayerHandler(gson))
                             .get("deck/create", new DeckHandler(gson))
                             .get("deck/assign", new AssignDeckHandler(gson))
                     ;

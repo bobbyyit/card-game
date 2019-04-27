@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.yit.cardgame.response.CreateResponse;
+import com.yit.cardgame.service.DeckService;
 import org.junit.Before;
 import org.junit.Test;
 import ratpack.handling.Context;
@@ -28,6 +29,7 @@ public class AssignDeckHandlerTest {
         handler = new AssignDeckHandler(gson);
         when(context.getRequest()).thenReturn(request);
         when(context.getResponse()).thenReturn(response);
+        DeckService.getOrCreateDeck();
     }
 
     @Test
